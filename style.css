@@ -726,6 +726,23 @@ h1, h2, h3, h4 {
   transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
+
+.coming-soon-section {
+  min-height: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.coming-title {
+  font-size: 6rem;
+  font-weight: 800;
+  text-align: center;
+  color: #fff;
+  letter-spacing: -2px;
+}
+
+
 .contact-card-details h4 {
   font-size: 0.8rem;
   font-weight: 600;
@@ -889,4 +906,5 @@ footer {
     gap: 1.25rem;
     text-align: center;
   }
+  
 }
