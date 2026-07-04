@@ -727,21 +727,36 @@ h1, h2, h3, h4 {
 }
 
 
-.coming-soon-section {
-  min-height: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/** kodd**/
+
+/* Canlı Önizleme Buton Tasarımı */
+.btn-live {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #00e676; /* Görseldeki yeşil tonuna yakın bir canlı yeşil */
+  color: #000000; /* Koyu arka planda rahat okunması için siyah yazı */
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 6px;
+  margin-top: 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 230, 118, 0.2);
 }
 
-.coming-title {
-  font-size: 6rem;
-  font-weight: 800;
-  text-align: center;
-  color: #fff;
-  letter-spacing: -2px;
+/* Butonun üzerine gelindiğindeki efekt (Hover) */
+.btn-live:hover {
+  background-color: #00c853; /* Biraz daha koyu yeşil */
+  transform: translateY(-2px); /* Hafif yukarı zıplama efekti */
+  box-shadow: 0 6px 20px rgba(0, 230, 118, 0.4); /* Işıldama efekti artar */
 }
 
+/** kodd**/
+
+.project-image img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
 
 .contact-card-details h4 {
   font-size: 0.8rem;
