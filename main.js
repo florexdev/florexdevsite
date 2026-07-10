@@ -119,6 +119,21 @@ document.addEventListener('DOMContentLoaded', () => {
       rootMargin: '-30% 0px -70% 0px' // Trigger active state when section spans middle of screen
     });
 
+
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const target = document.querySelector(this.getAttribute('href'));
+
+        target.scrollIntoView({
+            behavior: 'smooth'
+        });
+
+        history.replaceState(null, null, window.location.pathname);
+    });
+});
+
     sections.forEach(section => {
       scrollSpyObserver.observe(section);
     });
