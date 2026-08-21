@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Natural Graphite & Indigo Theme */
+  --bg-desktop: #0c0e14;
+  --bg-panel: rgba(18, 20, 29, 0.88);
+  --bg-window: rgba(16, 18, 26, 0.94);
+  --bg-window-header: rgba(22, 25, 36, 0.98);
+  --bg-card: rgba(26, 30, 44, 0.55);
+  --bg-card-hover: rgba(36, 42, 60, 0.75);
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-focus: rgba(99, 102, 241, 0.5);
+
+  --accent-primary: #6366f1;   /* Indigo */
+  --accent-violet: #8b5cf6;    /* Violet */
+  --accent-purple: #a855f7;    /* Purple */
+  --accent-emerald: #10b981;   /* Emerald */
+
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  --shadow-window: 0 20px 40px -15px rgba(0, 0, 0, 0.7), 0 0 1px 1px rgba(255, 255, 255, 0.06);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body, #root {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Fixed Backgrounds: webbg for desktop, mobilbg for mobile */
+.app-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-color: #0c0e14;
+}
+
+@media (min-width: 768px) {
+  .app-container {
+    background-image: url('/webbg.png');
+  }
+}
+
+@media (max-width: 767px) {
+  .app-container {
+    background-image: url('/mobilbg.png');
+  }
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Glassmorphism Window (Desktop) */
+.glass-window {
+  background: var(--bg-window);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-window);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.glass-window.focused {
+  border-color: var(--border-focus);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(99, 102, 241, 0.35);
+}
+
+.window-header {
+  background: var(--bg-window-header);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: grab;
+}
+
+.window-header:active {
+  cursor: grabbing;
+}
+
+/* Terminal Styling */
+.terminal-screen {
+  font-family: var(--font-mono);
+  background: #090a10;
+  color: #e2e8f0;
+  padding: 16px;
+  overflow-y: auto;
+  line-height: 1.5;
+  font-size: 13px;
+}
+
+/* Mobile Specific Animations */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.mobile-app-enter {
+  animation: slideUp 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
